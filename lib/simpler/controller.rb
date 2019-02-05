@@ -9,7 +9,7 @@ module Simpler
       @name     = extract_name
       @request  = Rack::Request.new(env)
       @response = Rack::Response.new
-      @headers = @response.headers
+      @headers  = @response.headers
     end
 
     def make_response(action)
