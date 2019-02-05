@@ -23,6 +23,10 @@ module Simpler
 
     private
 
+    def status(value)
+      @response.status = value
+    end
+
     def render(template)
       @request.env['simpler.template'] = template
     end

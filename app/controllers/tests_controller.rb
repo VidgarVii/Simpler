@@ -1,8 +1,8 @@
 class TestsController < Simpler::Controller
   def index
     # render 'tests/list'
-    render plain: 'Plain text response'
     @tests = Test.all
+    status 201
   end
 
   def create; end
