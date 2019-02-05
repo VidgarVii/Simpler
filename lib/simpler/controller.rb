@@ -5,10 +5,10 @@ module Simpler
       @response = Rack::Response.new
     end
 
-    def make_response(_action)
+    def make_response(action)
       [
         200,
-        { 'Content-Type' => 'text/plain' },
+        { 'Content-Type' => 'text/plain', 'X-Simpler-Action' => action },
         ["Hello World\n"]
       ]
     end

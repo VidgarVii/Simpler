@@ -14,14 +14,18 @@ module Simpler
       add_route(:post, path, route_point)
     end
 
-    def route_for(_env)
-      @routes[0]
+    def route_for(env)
+      method = env['REQUEST_METHOD'].downcase.to_sym
+      path = env['PATH_INFO']
+
+      @routes.find { |route| route.match?(method, path) }
     end
 
     private
 
-    def add_route(method, path, _route_point)
-      route = Route.new(method, path, Controller)
+    def add_route(method, path, route_point)
+      action = route_point.split('#')[1]
+      route = Route.new(method, path, Controller, action)
       @routes.push(route)
     end
   end
