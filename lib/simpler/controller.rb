@@ -5,13 +5,13 @@ module Simpler
     attr_reader :name
 
     def initialize(env)
-      @name = extract_name
-      @request = Rack::Request.new(env)
+      @name     = extract_name
+      @request  = Rack::Request.new(env)
       @response = Rack::Response.new
     end
 
     def make_response(action)
-      @request.env['simpler.action'] = action
+      @request.env['simpler.action']     = action
       @request.env['simpler.controller'] = self
 
       set_default_headers
@@ -36,7 +36,7 @@ module Simpler
     end
 
     def write_response
-      body = if @request.env['simpler.template'].is_a?(Hash) && @request.env['simpler.template'].has_key?(:plain)
+      body = if @request.env['simpler.template'].is_a?(Hash) && @request.env['simpler.template'].key?(:plain)
                @request.env['simpler.template'][:plain]
              else
                render_body
