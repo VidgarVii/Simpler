@@ -9,6 +9,8 @@
 </head>
 <body>
   <h1>It`s WORK!</h1>
-  <p><%= @time %></p>
+  <% @tests.each do |test| %>
+  <li><%= test.title %> (<%= test.level %>)</li>
+  <% end %>
 </body>
 </html>
