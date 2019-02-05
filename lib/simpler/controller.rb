@@ -36,7 +36,11 @@ module Simpler
     end
 
     def write_response
-      body = render_body
+      body = if @request.env['simpler.template'].is_a?(Hash) && @request.env['simpler.template'].has_key?(:plain)
+               @request.env['simpler.template'][:plain]
+             else
+               render_body
+             end
 
       @response.write(body)
     end
