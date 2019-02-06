@@ -49,13 +49,19 @@ module Simpler
     end
 
     def write_response
-      body = if @request.env['simpler.template'].is_a?(Hash) && @request.env['simpler.template'].key?(:plain)
+      body = if plain_exists?
                @request.env['simpler.template'][:plain]
              else
                render_body
              end
 
       @response.write(body)
+    end
+
+    def plain_exists?
+      template = @request.env['simpler.template']
+
+      template.is_a?(Hash) && template.key?(:plain)
     end
 
     def render_body

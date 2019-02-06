@@ -1,2 +1,2 @@
 # Simpler
-web framework
+Simple MVC Web Framework

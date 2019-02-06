@@ -38,7 +38,7 @@ module Simpler
     private
 
     def page_not_found
-      [404, {'Content-Type' => 'text/plain'}, ["Page Not Found\n"]]
+      [404, { 'Content-Type' => 'text/plain' }, ["Page Not Found\n"]]
     end
 
     def setup_database
