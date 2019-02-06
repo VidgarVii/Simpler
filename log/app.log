@@ -1,0 +1,8 @@
+# Logfile created on 2019-02-06 12:55:49 +0300 by logger.rb/61378
+I, [2019-02-06T13:51:50.749675 #26278]  INFO -- : {:Request=>"GET /tests3/", :Handler=>"TestsController#index", :Parameters=>{}, :Response=>"201 [text/html] tests/index.html.erb"}
+I, [2019-02-06T13:52:43.121189 #26983]  INFO -- : {:Request=>"GET /tests3/", :Handler=>"TestsController#index", :Parameters=>{}, :Response=>"201 [text/html] tests/index.html.erb"}
+I, [2019-02-06T13:52:44.369930 #26983]  INFO -- : {:Request=>"GET /tests3/", :Handler=>"TestsController#index", :Parameters=>{}, :Response=>"201 [text/html] tests/index.html.erb"}
+I, [2019-02-06T13:52:49.955691 #26983]  INFO -- : {:Request=>"GET /tests/3/", :Handler=>"TestsController#show", :Parameters=>{}, :Response=>"200 [text/html] tests/show.html.erb"}
+I, [2019-02-06T13:52:56.954585 #26983]  INFO -- : {:Request=>"GET /tests/2/", :Handler=>"TestsController#show", :Parameters=>{}, :Response=>"200 [text/html] tests/show.html.erb"}
+I, [2019-02-06T13:53:57.236464 #28137]  INFO -- : {:Request=>"GET /tests/2/", :Handler=>"TestsController#show", :Parameters=>{}, :Response=>"200 [text/html] tests/show.html.erb"}
+I, [2019-02-06T13:54:15.536536 #28137]  INFO -- : {:Request=>"GET /tests/2/", :Handler=>"TestsController#show", :Parameters=>{"params"=>"qwerty"}, :Response=>"200 [text/html] tests/show.html.erb"}

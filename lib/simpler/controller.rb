@@ -16,6 +16,7 @@ module Simpler
     def make_response(action)
       @request.env['simpler.action']     = action
       @request.env['simpler.controller'] = self
+      @request.env['simpler.params'] = @request.params
 
       set_params
       set_default_headers

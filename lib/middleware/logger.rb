@@ -2,13 +2,25 @@ require 'logger'
 
 class AppLogger
 
-  def initialize(app, **options)
+  def initialize(app)
     @app    = app
-    @logger = Logger.new(options[:logdev] || STDOUT)
+    @logger = Logger.new(Simpler.root.join('log/app.log'))
   end
 
   def call(env)
-    @logger.info(env)
-    @app.call(env)
+    status, headers, response = @app.call(env)
+    @logger.info(make_log(env, status, headers))
+    [status, headers, response]
+  end
+
+  private
+
+  def make_log(env, status, headers)
+    {
+      Request: "#{env['REQUEST_METHOD']} #{env['REQUEST_PATH']}",
+      Handler: "#{env['simpler.controller'].class}##{env['simpler.action']}",
+      Parameters: env['simpler.params'],
+      Response: "#{status} [#{headers['Content-Type']}] #{env['simpler.template_path']}"
+    }
   end
 end
