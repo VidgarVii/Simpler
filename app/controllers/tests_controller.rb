@@ -7,4 +7,8 @@ class TestsController < Simpler::Controller
   end
 
   def create; end
+
+  def show
+    @test = Test.find(id: params[:id])
+  end
 end

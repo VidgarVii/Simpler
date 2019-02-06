@@ -11,8 +11,8 @@ module Simpler
     attr_reader :db
 
     def initialize
+      @db     = nil
       @router = Router.new
-      @db = nil
     end
 
     def call(env)

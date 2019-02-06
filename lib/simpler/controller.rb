@@ -2,7 +2,7 @@ require_relative 'view'
 
 module Simpler
   class Controller
-    attr_reader :name
+    attr_reader :name, :params
     attr_accessor :headers
 
     def initialize(env)
@@ -10,12 +10,14 @@ module Simpler
       @request  = Rack::Request.new(env)
       @response = Rack::Response.new
       @headers  = @response.headers
+      @params = {}
     end
 
     def make_response(action)
       @request.env['simpler.action']     = action
       @request.env['simpler.controller'] = self
 
+      set_params
       set_default_headers
       send(action)
       write_response
@@ -24,6 +26,10 @@ module Simpler
     end
 
     private
+
+    def set_params
+      @params[:id] = @request.env['PATH_INFO'].split('/')[2]
+    end
 
     def status(value)
       @response.status = value
