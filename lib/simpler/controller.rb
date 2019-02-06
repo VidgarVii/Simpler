@@ -42,15 +42,11 @@ module Simpler
     end
 
     def set_default_headers
-      @response['Content-Type'] = 'text/html'
+      @response['Content-Type'] = plain_exists? ? 'text/plain' : 'text/html'
     end
 
     def write_response
-      body = if plain_exists?
-               @request.env['simpler.template'][:plain]
-             else
-               render_body
-             end
+      body = render_body
 
       @response.write(body)
     end
@@ -58,7 +54,9 @@ module Simpler
     def plain_exists?
       template = @request.env['simpler.template']
 
-      template.is_a?(Hash) && template.key?(:plain)
+      types = %i[plain inline text body]
+
+      template.is_a?(Hash) && template.any? { |type| types.include?(type) }
     end
 
     def render_body

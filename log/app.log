@@ -42,3 +42,14 @@ I, [2019-02-06T23:49:24.496198 #15952]  INFO -- : {:Request=>"GET /tests/", :Han
 I, [2019-02-06T23:52:01.546896 #24904]  INFO -- : {:Request=>"GET /tests/2", :Handler=>"TestsController#show", :Parameters=>{:tests=>"tests", :id=>"2"}, :Response=>"200 [text/html] tests/show.html.erb"}
 I, [2019-02-06T23:52:06.308145 #24904]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] tests/index.html.erb"}
 I, [2019-02-06T23:52:08.884329 #24904]  INFO -- : {:Request=>"GET /tests/1", :Handler=>"TestsController#show", :Parameters=>{:tests=>"tests", :id=>"1"}, :Response=>"200 [text/html] tests/show.html.erb"}
+I, [2019-02-06T23:55:09.094753 #28399]  INFO -- : {:Request=>"GET /tests/1", :Handler=>"TestsController#show", :Parameters=>{:tests=>"tests", :id=>"1"}, :Response=>"200 [text/html] tests/show.html.erb"}
+I, [2019-02-06T23:55:11.307066 #28399]  INFO -- : {:Request=>"GET /tests/2", :Handler=>"TestsController#show", :Parameters=>{:tests=>"tests", :id=>"2"}, :Response=>"200 [text/html] tests/show.html.erb"}
+I, [2019-02-06T23:55:14.496347 #28399]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] tests/index.html.erb"}
+I, [2019-02-07T00:17:38.004286 #22554]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] tests/index.html.erb"}
+I, [2019-02-07T00:17:55.740646 #24064]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] tests/list.html.erb"}
+I, [2019-02-07T00:19:28.777654 #24064]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] tests/list.html.erb"}
+I, [2019-02-07T00:23:51.419263 #8148]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] "}
+I, [2019-02-07T00:24:15.579854 #9664]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] "}
+I, [2019-02-07T00:24:34.626373 #11953]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] "}
+I, [2019-02-07T00:24:48.396357 #13464]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] tests/list.html.erb"}
+I, [2019-02-07T00:24:59.681718 #14719]  INFO -- : {:Request=>"GET /tests/", :Handler=>"TestsController#index", :Parameters=>{:tests=>"tests"}, :Response=>"201 [text/html] tests/index.html.erb"}

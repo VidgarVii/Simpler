@@ -9,12 +9,20 @@ module Simpler
     end
 
     def render(binding)
+      if template.is_a?(Hash)
+        template.values[0]
+      else
+        render_partial(binding)
+      end
+    end
+
+    private
+
+    def render_partial(binding)
       template = File.read(template_path)
 
       ERB.new(template).result(binding)
     end
-
-    private
 
     def template
       @env['simpler.template']
