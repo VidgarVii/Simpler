@@ -41,7 +41,6 @@ module Simpler
       end
 
       def correct_path?(path)
-        p path_regexp
         correct_params_count?(path) && path.match?(path_regexp)
       end
 
