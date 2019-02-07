@@ -50,7 +50,7 @@ module Simpler
       end
 
       def param?(param)
-        param.include?(':')
+        param.start_with?(':')
       end
 
       def path_regexp
