@@ -16,7 +16,7 @@ module Simpler
 
       def params(env)
         request = Rack::Request.new(env)
-        request.params.merge!(make_params(env['PATH_INFO']))
+        request.params.merge(make_params(env['PATH_INFO']))
       end
 
       private
