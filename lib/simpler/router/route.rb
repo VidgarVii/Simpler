@@ -16,22 +16,17 @@ module Simpler
 
       def params(env)
         request = Rack::Request.new(env)
-        request.env['simpler.params'] = request.params
-        request.env['simpler.params'].merge!(make_params(env['PATH_INFO'], @path))
-
-        request.env['simpler.params']
+        request.params.merge!(make_params(env['PATH_INFO']))
       end
 
       private
 
-      def make_params(env_info, path)
-        path = path.split('/')
-        path.delete_at(0)
-        env_info = env_info.split('/')
-        env_info.delete_at(0)
+      def make_params(env_info)
+        path = extract_params(@path)
+        requests = extract_params(env_info)
         result = {}
 
-        path.zip(env_info) do |key, value|
+        path.zip(requests) do |key, value|
           key = key.delete(':').to_sym
           result[key] = value
         end
@@ -39,7 +34,14 @@ module Simpler
         result
       end
 
+      def extract_params(string)
+        string = string.split('/')
+        string.delete_at(0)
+        string
+      end
+
       def correct_path?(path)
+        p path_regexp
         correct_params_count?(path) && path.match?(path_regexp)
       end
 
@@ -47,8 +49,14 @@ module Simpler
         path.split('/').size == @path.split('/').size
       end
 
+      def param?(param)
+        param.include?(':')
+      end
+
       def path_regexp
-        @path.include?(':id') ? @path.gsub(':id', '[[:alnum:]]') : @path
+        route = extract_params(@path)
+        route.map { |param| param?(param) ? '[[:alnum:]]' : param }
+             .join('/')
       end
     end
   end

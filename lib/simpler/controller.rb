@@ -42,7 +42,7 @@ module Simpler
     end
 
     def set_default_headers
-      @response['Content-Type'] = plain_exists? ? 'text/plain' : 'text/html'
+      headers['Content-Type'] = plain_exists? ? 'text/plain' : 'text/html'
     end
 
     def write_response

@@ -17,9 +17,9 @@ module Simpler
 
     def call(env)
       route = @router.route_for(env)
-      route.params(env)
       return page_not_found unless route
 
+      env['simpler.params'] = route.params(env)
       controller = route.controller.new(env)
       action = route.action
 
